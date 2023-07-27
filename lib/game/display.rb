@@ -5,27 +5,9 @@ class Display
     end
 
     private def show_board(board)
-        first_row = true
-
         board.squares.each do |row|
-            if first_row
-                row.length.times do
-                    print "+---+"    
-                end
-
-                print "\n"
-            end
-
-            first_row = false
-
             row.each do |square|
-                print "| #{square.piece ? square.piece : ' '} |"
-            end
-
-            print "\n"
-
-            row.length.times do
-                print "+---+"    
+                print " #{square.piece ? square.piece : square} "
             end
 
             print "\n"

@@ -1,11 +1,11 @@
-class Pawn < Piece
+class Queen < Piece
 
     def to_s
         if color == Game::BLACK
-            return "\u2659"
+            return "\u2655"
         end
 
-        "\u265F"
+        "\u265B"
     end
 
 end

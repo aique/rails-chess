@@ -1,4 +1,10 @@
+require_relative 'board'
+require_relative 'display'
+
 class Game
+
+    BLACK = "black"
+    WHITE = "white"
 
     attr_reader :board
     
