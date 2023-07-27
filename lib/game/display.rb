@@ -1,6 +1,7 @@
 class Display
 
     def show(game)
+        system "clear"
         show_board(game.board)
     end
 
@@ -12,6 +13,13 @@ class Display
 
             print "\n"
         end
+
+        print "\n"
+    end
+
+    def ask_to_move(player)
+        puts "Please #{player.name}, make your movement"
+        gets.chomp
     end
 
 end

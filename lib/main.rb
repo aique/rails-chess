@@ -10,7 +10,11 @@ class Main
 
     def play
         game = Container["game"]
-        game.start()
+
+        game.append_player(Player.new("Player 1", Game::WHITE))
+        game.append_player(Player.new("Player 2", Game::BLACK))
+
+        game.start
     end
 
 end
