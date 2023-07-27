@@ -1,0 +1,20 @@
+
+[1mFrom:[0m /home/aique/Projects/personal/bebanjo/ruby/chess/lib/game/board.rb:25 Board#initialize_squares:
+
+    [1;34m11[0m: private [32mdef[0m [1;34minitialize_squares[0m
+    [1;34m12[0m:     columns = [[31m[1;31m'[0m[31mA[1;31m'[0m[31m[0m, [31m[1;31m'[0m[31mB[1;31m'[0m[31m[0m, [31m[1;31m'[0m[31mC[1;31m'[0m[31m[0m, [31m[1;31m'[0m[31mD[1;31m'[0m[31m[0m, [31m[1;31m'[0m[31mE[1;31m'[0m[31m[0m, [31m[1;31m'[0m[31mF[1;31m'[0m[31m[0m, [31m[1;31m'[0m[31mG[1;31m'[0m[31m[0m, [31m[1;31m'[0m[31mH[1;31m'[0m[31m[0m]
+    [1;34m13[0m:     squares = [1;34;4mArray[0m.new([1;34;4mHEIGHT[0m) { [1;34;4mArray[0m.new([1;34;4mWIDTH[0m) { [1;36mnil[0m } }
+    [1;34m14[0m: 
+    [1;34m15[0m:     [32mfor[0m i [32min[0m [1;34m0[0m..squares.length - [1;34m1[0m [32mdo[0m
+    [1;34m16[0m:         current_row = squares.length - i
+    [1;34m17[0m: 
+    [1;34m18[0m:         [32mfor[0m j [32min[0m [1;34m0[0m..squares[i].length - [1;34m1[0m [32mdo[0m
+    [1;34m19[0m:             squares[i][j] = [1;34;4mSquare[0m.new(current_row.to_s, columns[j])
+    [1;34m20[0m:         [32mend[0m
+    [1;34m21[0m:     [32mend[0m
+    [1;34m22[0m: 
+    [1;34m23[0m:     binding.pry
+    [1;34m24[0m: 
+ => [1;34m25[0m:     squares
+    [1;34m26[0m: [32mend[0m
+
