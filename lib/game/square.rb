@@ -3,7 +3,7 @@ class Square
     attr_reader :row, :column, :color
     attr_accessor :piece
 
-    def initialize(row, column, color)
+    def initialize(row, column, color = Game::WHITE)
         @row = row
         @column = column
         @color = color

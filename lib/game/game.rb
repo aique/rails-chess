@@ -1,6 +1,7 @@
 require_relative 'board'
 require_relative 'player'
 require_relative 'display'
+require_relative 'referee'
 
 class Game
 
@@ -9,8 +10,9 @@ class Game
 
     attr_reader :board
     
-    def initialize(board, display)
+    def initialize(board, referee, display)
         @board = board
+        @referee = referee
         @display = display
         @players = []
     end
@@ -20,7 +22,7 @@ class Game
     end
 
     def start
-        @board.set_up_pieces
+        @referee.set_up_pieces(@board)
         active_player_index = 0
 
         loop do

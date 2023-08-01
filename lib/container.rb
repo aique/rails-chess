@@ -4,16 +4,21 @@ class Container
     register "game" do
         Game.new(
             self["board"],
+            self["referee"],
             self["display"]
         )
     end
 
     register "board" do
-        Board.new(self["piece_factory"])
+        Board.new
     end
 
     register "display" do
         Display.new
+    end
+
+    register "referee" do
+        Referee.new(self["piece_factory"])
     end
 
     register "piece_factory" do
