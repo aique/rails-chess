@@ -9,14 +9,21 @@ class Pawn < Piece
     end
 
     def available_square?(square)
-        unless obstruction?(square)
-            return valid_row(square.row) && valid_column(square.column)
+        capture_square = false
+        advance_square = false
+
+        if capture_available?(square)
+            capture_square = valid_capture_row(square.row) && valid_capture_column(square.column)
         end
 
-        return false
+        unless obstruction?(square)
+            advance_square = valid_row(square.row) && valid_column(square.column)
+        end
+
+        return capture_square || advance_square
     end
 
-    def valid_row(row)
+    private def valid_row(row)
         if @color == Game::WHITE
             return row == @square.row + 1 || (@first_movement && row == @square.row + 2)
         end
@@ -24,8 +31,20 @@ class Pawn < Piece
         row == @square.row - 1 || (@first_movement && row == @square.row - 2)
     end
 
-    def valid_column(column)
+    private def valid_column(column)
         column == @square.column
+    end
+
+    private def valid_capture_row(row)
+        if @color == Game::WHITE
+            return row == @square.row + 1
+        end
+            
+        row == @square.row - 1
+    end
+
+    private def valid_capture_column(column)
+        column == @square.column - 1 || column == @square.column + 1
     end
 
 end

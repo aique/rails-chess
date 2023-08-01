@@ -35,6 +35,10 @@ class Piece
         return @square.nil?
     end
 
+    protected def capture_available?(square)
+        return !square.piece.nil? && square.piece.color != @color
+    end
+
     protected def available_square?(square)
         raise "Method must be overwritten"
     end

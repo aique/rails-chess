@@ -174,4 +174,22 @@ describe Game do
         end
     end
 
+    context "given an empty board with two rival pawns and white can attack black pawn" do
+        game = Container["game"]
+        factory = Container["piece_factory"]
+        
+        pawn1 = factory.build_piece(PieceFactory::PAWN, Game::WHITE)
+        pawn2 = factory.build_piece(PieceFactory::PAWN, Game::BLACK)
+        
+        game.board.set_piece(pawn1, 1, 1)
+        game.board.set_piece(pawn2, 2, 2)
+
+        it "white pawn capture black pawn" do
+            pawn1.square = game.board.get_square(2, 2)
+            expect(pawn1.square.row).to eq(2)
+            expect(pawn1.square.column).to eq(2)
+            expect(game.board.get_square(2, 2).piece).to eq(pawn1)
+        end
+    end
+
 end
