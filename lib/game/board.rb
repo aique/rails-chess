@@ -51,8 +51,11 @@ class Board
     def set_piece(piece, row, column)
         square = squares[HEIGHT - 1 - row][column]
         square.piece = piece
-        piece.square = square
-        piece.board = self
+
+        unless piece.nil?
+            piece.square = square
+            piece.board = self
+        end
     end
 
 end

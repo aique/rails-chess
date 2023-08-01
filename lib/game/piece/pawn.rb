@@ -8,12 +8,12 @@ class Pawn < Piece
         "\u265F"
     end
 
-    def available_square(square)
+    def available_square?(square)
         unless obstruction?(square)
             return valid_row(square.row) && valid_column(square.column)
         end
 
-        raise "Invalid movement"
+        return false
     end
 
     def valid_row(row)

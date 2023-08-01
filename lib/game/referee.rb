@@ -9,35 +9,35 @@ class Referee
     def set_up_pieces(board)
         for i in 0..Board::HEIGHT - 1 do
             for j in 0..Board::WIDTH - 1 do
-                board.squares[i][j].piece = nil
+                board.set_piece(nil, i, j)
             end
         end
 
         for i in 0..Board::WIDTH - 1 do
-            board.squares[6][i].piece = @factory.build_piece(PieceFactory::PAWN, Game::WHITE)
-            board.squares[1][i].piece = @factory.build_piece(PieceFactory::PAWN, Game::BLACK)
+            board.set_piece(@factory.build_piece(PieceFactory::PAWN, Game::WHITE), 1, i)
+            board.set_piece(@factory.build_piece(PieceFactory::PAWN, Game::BLACK), 6, i)
         end
 
-        board.squares[7][0].piece = @factory.build_piece(PieceFactory::ROOK, Game::WHITE)
-        board.squares[7][7].piece = @factory.build_piece(PieceFactory::ROOK, Game::WHITE)
-        board.squares[0][0].piece = @factory.build_piece(PieceFactory::ROOK, Game::BLACK)
-        board.squares[0][7].piece = @factory.build_piece(PieceFactory::ROOK, Game::BLACK)
+        board.set_piece(@factory.build_piece(PieceFactory::ROOK, Game::WHITE), 0, 0)
+        board.set_piece(@factory.build_piece(PieceFactory::ROOK, Game::WHITE), 0, 7)
+        board.set_piece(@factory.build_piece(PieceFactory::ROOK, Game::BLACK), 7, 0)
+        board.set_piece(@factory.build_piece(PieceFactory::ROOK, Game::BLACK), 7, 7)
 
-        board.squares[7][1].piece = @factory.build_piece(PieceFactory::KNIGHT, Game::WHITE)
-        board.squares[7][6].piece = @factory.build_piece(PieceFactory::KNIGHT, Game::WHITE)
-        board.squares[0][1].piece = @factory.build_piece(PieceFactory::KNIGHT, Game::BLACK)
-        board.squares[0][6].piece = @factory.build_piece(PieceFactory::KNIGHT, Game::BLACK)
+        board.set_piece(@factory.build_piece(PieceFactory::KNIGHT, Game::WHITE), 0, 1)
+        board.set_piece(@factory.build_piece(PieceFactory::KNIGHT, Game::WHITE), 0, 6)
+        board.set_piece(@factory.build_piece(PieceFactory::KNIGHT, Game::BLACK), 7, 1)
+        board.set_piece(@factory.build_piece(PieceFactory::KNIGHT, Game::BLACK), 7, 6)
 
-        board.squares[7][2].piece = @factory.build_piece(PieceFactory::BISHOP, Game::WHITE)
-        board.squares[7][5].piece = @factory.build_piece(PieceFactory::BISHOP, Game::WHITE)
-        board.squares[0][2].piece = @factory.build_piece(PieceFactory::BISHOP, Game::BLACK)
-        board.squares[0][5].piece = @factory.build_piece(PieceFactory::BISHOP, Game::BLACK)
+        board.set_piece(@factory.build_piece(PieceFactory::BISHOP, Game::WHITE), 0, 2)
+        board.set_piece(@factory.build_piece(PieceFactory::BISHOP, Game::WHITE), 0, 5)
+        board.set_piece(@factory.build_piece(PieceFactory::BISHOP, Game::BLACK), 7, 2)
+        board.set_piece(@factory.build_piece(PieceFactory::BISHOP, Game::BLACK), 7, 5)
 
-        board.squares[7][3].piece = @factory.build_piece(PieceFactory::QUEEN, Game::WHITE)
-        board.squares[0][3].piece = @factory.build_piece(PieceFactory::QUEEN, Game::BLACK)
+        board.set_piece(@factory.build_piece(PieceFactory::QUEEN, Game::WHITE), 0, 3)
+        board.set_piece(@factory.build_piece(PieceFactory::QUEEN, Game::BLACK), 7, 3)
 
-        board.squares[7][4].piece = @factory.build_piece(PieceFactory::KING, Game::WHITE)
-        board.squares[0][4].piece = @factory.build_piece(PieceFactory::KING, Game::BLACK)
+        board.set_piece(@factory.build_piece(PieceFactory::KING, Game::WHITE), 0, 4)
+        board.set_piece(@factory.build_piece(PieceFactory::KING, Game::BLACK), 7, 4)
     end
 
 end

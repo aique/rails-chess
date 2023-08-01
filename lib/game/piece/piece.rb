@@ -11,15 +11,19 @@ class Piece
     end
 
     def square=(square)
-        if @square.nil?
+        if empty_square?
             @square = square
+            @square.piece = self
             
             return self
         end
 
-        if available_square(square)
-            @square = square
+        if available_square?(square)
+            @square.piece = nil
             @first_movement = false
+
+            @square = square
+            @square.piece = self
 
             return self
         end
@@ -27,11 +31,15 @@ class Piece
         raise "Invalid movement"
     end
 
-    def available_square(square)
+    private def empty_square?
+        return @square.nil?
+    end
+
+    protected def available_square?(square)
         raise "Method must be overwritten"
     end
 
-    def obstruction?(square)
+    protected def obstruction?(square)
         rows = square.row - @square.row
         columns = square.column - @square.column
         num_squares = [rows.abs, columns.abs].max

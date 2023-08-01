@@ -11,11 +11,11 @@ class MovementParser
         destination = input[2..3]
 
         piece = board.get_piece(
-            origin[1].to_i, get_column(origin[0])
+            origin[1].to_i - 1, get_column(origin[0])
         )
 
         destination = board.get_square(
-            destination[1].to_i, get_column(destination[0])
+            destination[1].to_i - 1, get_column(destination[0])
         )
 
         Movement.new(piece, destination)

@@ -35,6 +35,14 @@ class Game
             loop do
                 input = @display.ask_to_move(active_player)
                 move = @parser.parse_movement(input, @board)
+
+                begin
+                    move.piece.square = move.square
+                rescue
+                    move = nil
+                    @display.invalid_movement
+                end
+                
                 break unless move.nil?
             end
 

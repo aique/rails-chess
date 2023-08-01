@@ -22,4 +22,8 @@ class Display
         gets.chomp
     end
 
+    def invalid_movement
+        puts "You should enter a valid movement"
+    end
+
 end
