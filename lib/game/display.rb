@@ -6,7 +6,12 @@ class Display
     end
 
     private def show_board(board)
+        row_number = Board::HEIGHT
+
         board.squares.each do |row|
+            print "#{row_number} "
+            row_number = row_number - 1
+
             row.each do |square|
                 print " #{square.piece ? square.piece : square} "
             end
@@ -14,7 +19,7 @@ class Display
             print "\n"
         end
 
-        print "\n"
+        print "   a  b  c  d  e  f  g  h\n\n"
     end
 
     def ask_to_move(player)
