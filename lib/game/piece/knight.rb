@@ -8,4 +8,15 @@ class Knight < Piece
         "\u265E"
     end
 
+    def available_square?(square)
+        return square.row == @square.row + 2 && square.column == @square.column + 1 ||
+               square.row == @square.row + 1 && square.column == @square.column + 2 ||
+               square.row == @square.row + 2 && square.column == @square.column - 1 ||
+               square.row == @square.row + 1 && square.column == @square.column - 2 ||
+               square.row == @square.row - 2 && square.column == @square.column + 1 ||
+               square.row == @square.row - 1 && square.column == @square.column + 2 ||
+               square.row == @square.row - 2 && square.column == @square.column - 1 ||
+               square.row == @square.row - 1 && square.column == @square.column - 2
+    end
+
 end
