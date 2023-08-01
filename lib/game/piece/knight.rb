@@ -9,6 +9,10 @@ class Knight < Piece
     end
 
     def available_square?(square)
+        if !square.piece.nil? && square.piece.color == @color
+            return false
+        end
+
         return square.row == @square.row + 2 && square.column == @square.column + 1 ||
                square.row == @square.row + 1 && square.column == @square.column + 2 ||
                square.row == @square.row + 2 && square.column == @square.column - 1 ||

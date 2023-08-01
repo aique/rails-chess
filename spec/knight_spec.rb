@@ -35,4 +35,19 @@ describe Game do
         end
     end
 
+    context "given an empty board with one white knight and one white pawn" do
+        game = Container["game"]
+        factory = Container["piece_factory"]
+        
+        pawn = factory.build_piece(PieceFactory::PAWN, Game::WHITE)
+        knight = factory.build_piece(PieceFactory::KNIGHT, Game::WHITE)
+        
+        game.board.set_piece(pawn, 5, 6)
+        game.board.set_piece(knight, 4, 4)
+
+        it "knight can't move to a square occupied by the pawn" do
+            expect{knight.square = game.board.get_square(5, 6)}.to raise_error("Invalid movement")
+        end
+    end
+
 end
