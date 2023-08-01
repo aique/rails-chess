@@ -9,7 +9,7 @@ class Pawn < Piece
     end
 
     def available_square(square)
-        if square.piece.nil?
+        unless obstruction?(square)
             return valid_row(square.row) && valid_column(square.column)
         end
 

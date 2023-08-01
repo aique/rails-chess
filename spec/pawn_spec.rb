@@ -151,6 +151,7 @@ describe Game do
 
         it "white pawn can't make a movement" do
             expect{pawn1.square = game.board.get_square(2, 1)}.to raise_error("Invalid movement")
+            expect{pawn1.square = game.board.get_square(3, 1)}.to raise_error("Invalid movement")
         end
 
         it "black pawn can't make a movement" do
