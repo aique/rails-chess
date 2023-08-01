@@ -1,7 +1,7 @@
 class Knight < Piece
 
     def to_s
-        if color == Game::BLACK
+        if @color == Game::BLACK
             return "\u2658"
         end
 
