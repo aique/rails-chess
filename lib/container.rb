@@ -5,6 +5,7 @@ class Container
         Game.new(
             self["board"],
             self["referee"],
+            self["movement_parser"],
             self["display"]
         )
     end
@@ -23,6 +24,10 @@ class Container
 
     register "piece_factory" do
         PieceFactory.new
+    end
+
+    register "movement_parser" do
+        MovementParser.new
     end
 
 end

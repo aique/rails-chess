@@ -43,6 +43,11 @@ class Board
         squares[HEIGHT - 1 - row][column]
     end
 
+    def get_piece(row, column)
+        square = squares[HEIGHT - 1 - row][column]
+        square.piece
+    end
+
     def set_piece(piece, row, column)
         square = squares[HEIGHT - 1 - row][column]
         square.piece = piece

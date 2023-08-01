@@ -2,6 +2,8 @@ require_relative 'board'
 require_relative 'player'
 require_relative 'display'
 require_relative 'referee'
+require_relative 'movement/parser'
+require_relative 'movement/movement'
 
 class Game
 
@@ -10,10 +12,11 @@ class Game
 
     attr_reader :board
     
-    def initialize(board, referee, display)
+    def initialize(board, referee, parser, display)
         @board = board
         @referee = referee
         @display = display
+        @parser = parser
         @players = []
     end
 
@@ -28,7 +31,12 @@ class Game
         loop do
             @display.show(self)
             active_player = @players[active_player_index]
-            move = @display.ask_to_move(active_player)
+
+            loop do
+                input = @display.ask_to_move(active_player)
+                move = @parser.parse_movement(input, @board)
+                break unless move.nil?
+            end
 
             active_player_index = (active_player_index + 1) % @players.length
 
