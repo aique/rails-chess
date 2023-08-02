@@ -11,7 +11,7 @@ class Piece
     end
 
     def square=(square)
-        if empty_square?
+        if @square.nil?
             @square = square
             @square.piece = self
             
@@ -31,12 +31,12 @@ class Piece
         raise "Invalid movement"
     end
 
-    private def empty_square?
-        return @square.nil?
-    end
-
     protected def capture_available?(square)
         return !square.piece.nil? && square.piece.color != @color
+    end
+
+    protected def empty_or_capturable?(square)
+        return square.piece.nil? || (!square.piece.nil? && square.piece.color != @color)
     end
 
     protected def available_square?(square)
@@ -51,7 +51,7 @@ class Piece
         next_row = @square.row
         next_column = @square.column
 
-        for i in 1..num_squares
+        for i in 1..(num_squares - 1)
             if rows > 0
                 next_row = @square.row + i
             elsif rows < 0

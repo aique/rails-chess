@@ -32,6 +32,8 @@ describe Game do
             knight.square = game.board.get_square(4, 2)
             expect(knight.square.row).to eq(4)
             expect(knight.square.column).to eq(2)
+
+            expect{knight.square = game.board.get_square(4, 4)}.to raise_error("Invalid movement")
         end
     end
 
@@ -47,6 +49,23 @@ describe Game do
 
         it "knight can't move to a square occupied by the pawn" do
             expect{knight.square = game.board.get_square(5, 6)}.to raise_error("Invalid movement")
+        end
+    end
+
+    context "given an empty board with one black knight and one white pawn" do
+        game = Container["game"]
+        factory = Container["piece_factory"]
+        
+        pawn = factory.build_piece(PieceFactory::PAWN, Game::WHITE)
+        knight = factory.build_piece(PieceFactory::KNIGHT, Game::BLACK)
+        
+        game.board.set_piece(pawn, 5, 6)
+        game.board.set_piece(knight, 4, 4)
+
+        it "knight can capture the white pawn" do
+            knight.square = game.board.get_square(5, 6)
+            expect(knight.square.row).to eq(5)
+            expect(knight.square.column).to eq(6)
         end
     end
 

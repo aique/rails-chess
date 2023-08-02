@@ -16,7 +16,7 @@ class Pawn < Piece
             capture_square = valid_capture_row(square.row) && valid_capture_column(square.column)
         end
 
-        unless obstruction?(square)
+        if !obstruction?(square) && square.piece.nil?
             advance_square = valid_row(square.row) && valid_column(square.column)
         end
 
