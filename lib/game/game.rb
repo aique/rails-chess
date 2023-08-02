@@ -33,16 +33,7 @@ class Game
             active_player = @players[active_player_index]
 
             loop do
-                input = @display.ask_to_move(active_player)
-                move = @parser.parse_movement(input, @board)
-
-                begin
-                    move.piece.square = move.square
-                rescue
-                    move = nil
-                    @display.invalid_movement
-                end
-                
+                move = ask_to_move(active_player)
                 break unless move.nil?
             end
 
@@ -50,6 +41,20 @@ class Game
 
             break if false
         end
+    end
+
+    private def ask_to_move(player)
+        input = @display.ask_to_move(player)
+        move = @parser.parse_movement(input, @board)
+
+        begin
+            move.piece.square = move.square
+        rescue
+            move = nil
+            @display.invalid_movement
+        end
+
+        move
     end
 
 end
