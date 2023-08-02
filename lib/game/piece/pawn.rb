@@ -8,7 +8,7 @@ class Pawn < Piece
         "\u265F"
     end
 
-    def available_square?(square)
+    protected def available_square?(square)
         capture_square = false
         advance_square = false
 

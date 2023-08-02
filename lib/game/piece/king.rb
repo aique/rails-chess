@@ -8,4 +8,22 @@ class King < Piece
         "\u265A"
     end
 
+    protected def available_square?(square)
+        if unitary_movement?(square) && empty_or_capturable?(square)
+            return diagonal_movement?(square) || lineal_movement?(square)
+        end
+
+        false
+    end
+
+    private def unitary_movement?(square)
+        difference = (square.row - @square.row).abs + (square.column - @square.column).abs
+
+        if lineal_movement?(square)
+            return difference == 1
+        end
+
+        difference == 2
+    end
+
 end

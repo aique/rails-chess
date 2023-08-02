@@ -8,7 +8,7 @@ class Rook < Piece
         "\u265C"
     end
 
-    def available_square?(square)
+    protected def available_square?(square)
         if !obstruction?(square) && empty_or_capturable?(square)
             return lineal_movement?(square)
         end
