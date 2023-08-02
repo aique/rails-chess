@@ -41,7 +41,7 @@ class Piece
         raise "Invalid movement"
     end
 
-    def available_square?(square)
+    def available_square?(destination)
         raise "Method must be overwritten"
     end
 
@@ -51,35 +51,6 @@ class Piece
 
     protected def empty_or_capturable?(square)
         square.piece.nil? || (!square.piece.nil? && square.piece.color != @color)
-    end
-
-    protected def obstruction?(square)
-        rows = square.row - @square.row
-        columns = square.column - @square.column
-        num_squares = [rows.abs, columns.abs].max
-
-        next_row = @square.row
-        next_column = @square.column
-
-        for i in 1..(num_squares - 1)
-            if rows > 0
-                next_row = @square.row + i
-            elsif rows < 0
-                next_row = @square.row - i
-            end
-
-            if columns > 0
-                next_column = @square.column + i
-            elsif columns < 0
-                next_column = @square.column - i
-            end
-
-            unless @board.get_piece(next_row, next_column).nil?
-                return true
-            end
-        end
-
-        false
     end
 
     protected def diagonal_movement?(square)

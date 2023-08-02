@@ -8,16 +8,16 @@ class Pawn < Piece
         "\u265F"
     end
 
-    def available_square?(square)
+    def available_square?(destination)
         capture_square = false
         advance_square = false
 
-        if capture_available?(square)
-            capture_square = valid_capture_row(square.row) && valid_capture_column(square.column)
+        if capture_available?(destination)
+            capture_square = valid_capture_row(destination.row) && valid_capture_column(destination.column)
         end
 
-        if !obstruction?(square) && square.piece.nil?
-            advance_square = valid_row(square.row) && valid_column(square.column)
+        if !@board.obstruction?(@square, destination) && destination.piece.nil?
+            advance_square = valid_row(destination.row) && valid_column(destination.column)
         end
 
         capture_square || advance_square

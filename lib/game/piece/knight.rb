@@ -8,19 +8,19 @@ class Knight < Piece
         "\u265E"
     end
 
-    def available_square?(square)
-        if !square.piece.nil? && square.piece.color == @color
+    def available_square?(destination)
+        if !destination.piece.nil? && destination.piece.color == @color
             return false
         end
 
-        square.row == @square.row + 2 && square.column == @square.column + 1 ||
-        square.row == @square.row + 1 && square.column == @square.column + 2 ||
-        square.row == @square.row + 2 && square.column == @square.column - 1 ||
-        square.row == @square.row + 1 && square.column == @square.column - 2 ||
-        square.row == @square.row - 2 && square.column == @square.column + 1 ||
-        square.row == @square.row - 1 && square.column == @square.column + 2 ||
-        square.row == @square.row - 2 && square.column == @square.column - 1 ||
-        square.row == @square.row - 1 && square.column == @square.column - 2
+        destination.row == @square.row + 2 && destination.column == @square.column + 1 ||
+        destination.row == @square.row + 1 && destination.column == @square.column + 2 ||
+        destination.row == @square.row + 2 && destination.column == @square.column - 1 ||
+        destination.row == @square.row + 1 && destination.column == @square.column - 2 ||
+        destination.row == @square.row - 2 && destination.column == @square.column + 1 ||
+        destination.row == @square.row - 1 && destination.column == @square.column + 2 ||
+        destination.row == @square.row - 2 && destination.column == @square.column - 1 ||
+        destination.row == @square.row - 1 && destination.column == @square.column - 2
     end
 
 end

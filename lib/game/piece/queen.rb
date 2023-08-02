@@ -8,9 +8,9 @@ class Queen < Piece
         "\u265B"
     end
 
-    def available_square?(square)
-        if !obstruction?(square) && empty_or_capturable?(square)
-            return diagonal_movement?(square) || lineal_movement?(square)
+    def available_square?(destination)
+        if !@board.obstruction?(@square, destination) && empty_or_capturable?(destination)
+            return diagonal_movement?(destination) || lineal_movement?(destination)
         end
 
         false

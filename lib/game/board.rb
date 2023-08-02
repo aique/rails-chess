@@ -58,4 +58,33 @@ class Board
         end
     end
 
+    def obstruction?(origin_square, destination_square)
+        rows = destination_square.row - origin_square.row
+        columns = destination_square.column - origin_square.column
+        num_squares = [rows.abs, columns.abs].max
+
+        next_row = origin_square.row
+        next_column = origin_square.column
+
+        for i in 1..(num_squares - 1)
+            if rows > 0
+                next_row = origin_square.row + i
+            elsif rows < 0
+                next_row = origin_square.row - i
+            end
+
+            if columns > 0
+                next_column = origin_square.column + i
+            elsif columns < 0
+                next_column = origin_square.column - i
+            end
+
+            unless get_piece(next_row, next_column).nil?
+                return true
+            end
+        end
+
+        false
+    end
+
 end
