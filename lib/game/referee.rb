@@ -6,7 +6,7 @@ class Referee
         @factory = factory
     end
 
-    def set_up_pieces(board)
+    def set_up_pieces(board, white_player, black_player)
         for i in 0..Board::HEIGHT - 1 do
             for j in 0..Board::WIDTH - 1 do
                 board.set_piece(nil, i, j)
@@ -14,30 +14,30 @@ class Referee
         end
 
         for i in 0..Board::WIDTH - 1 do
-            board.set_piece(@factory.build_piece(PieceFactory::PAWN, Game::WHITE), 1, i)
-            board.set_piece(@factory.build_piece(PieceFactory::PAWN, Game::BLACK), 6, i)
+            board.set_piece(@factory.build_piece(Piece::PAWN, Game::WHITE, white_player), 1, i)
+            board.set_piece(@factory.build_piece(Piece::PAWN, Game::BLACK, black_player), 6, i)
         end
 
-        board.set_piece(@factory.build_piece(PieceFactory::ROOK, Game::WHITE), 0, 0)
-        board.set_piece(@factory.build_piece(PieceFactory::ROOK, Game::WHITE), 0, 7)
-        board.set_piece(@factory.build_piece(PieceFactory::ROOK, Game::BLACK), 7, 0)
-        board.set_piece(@factory.build_piece(PieceFactory::ROOK, Game::BLACK), 7, 7)
+        board.set_piece(@factory.build_piece(Piece::ROOK, Game::WHITE, white_player), 0, 0)
+        board.set_piece(@factory.build_piece(Piece::ROOK, Game::WHITE, white_player), 0, 7)
+        board.set_piece(@factory.build_piece(Piece::ROOK, Game::BLACK, black_player), 7, 0)
+        board.set_piece(@factory.build_piece(Piece::ROOK, Game::BLACK, black_player), 7, 7)
 
-        board.set_piece(@factory.build_piece(PieceFactory::KNIGHT, Game::WHITE), 0, 1)
-        board.set_piece(@factory.build_piece(PieceFactory::KNIGHT, Game::WHITE), 0, 6)
-        board.set_piece(@factory.build_piece(PieceFactory::KNIGHT, Game::BLACK), 7, 1)
-        board.set_piece(@factory.build_piece(PieceFactory::KNIGHT, Game::BLACK), 7, 6)
+        board.set_piece(@factory.build_piece(Piece::KNIGHT, Game::WHITE, white_player), 0, 1)
+        board.set_piece(@factory.build_piece(Piece::KNIGHT, Game::WHITE, white_player), 0, 6)
+        board.set_piece(@factory.build_piece(Piece::KNIGHT, Game::BLACK, black_player), 7, 1)
+        board.set_piece(@factory.build_piece(Piece::KNIGHT, Game::BLACK, black_player), 7, 6)
 
-        board.set_piece(@factory.build_piece(PieceFactory::BISHOP, Game::WHITE), 0, 2)
-        board.set_piece(@factory.build_piece(PieceFactory::BISHOP, Game::WHITE), 0, 5)
-        board.set_piece(@factory.build_piece(PieceFactory::BISHOP, Game::BLACK), 7, 2)
-        board.set_piece(@factory.build_piece(PieceFactory::BISHOP, Game::BLACK), 7, 5)
+        board.set_piece(@factory.build_piece(Piece::BISHOP, Game::WHITE, white_player), 0, 2)
+        board.set_piece(@factory.build_piece(Piece::BISHOP, Game::WHITE, white_player), 0, 5)
+        board.set_piece(@factory.build_piece(Piece::BISHOP, Game::BLACK, black_player), 7, 2)
+        board.set_piece(@factory.build_piece(Piece::BISHOP, Game::BLACK, black_player), 7, 5)
 
-        board.set_piece(@factory.build_piece(PieceFactory::QUEEN, Game::WHITE), 0, 3)
-        board.set_piece(@factory.build_piece(PieceFactory::QUEEN, Game::BLACK), 7, 3)
+        board.set_piece(@factory.build_piece(Piece::QUEEN, Game::WHITE, white_player), 0, 3)
+        board.set_piece(@factory.build_piece(Piece::QUEEN, Game::BLACK, black_player), 7, 3)
 
-        board.set_piece(@factory.build_piece(PieceFactory::KING, Game::WHITE), 0, 4)
-        board.set_piece(@factory.build_piece(PieceFactory::KING, Game::BLACK), 7, 4)
+        board.set_piece(@factory.build_piece(Piece::KING, Game::WHITE, white_player), 0, 4)
+        board.set_piece(@factory.build_piece(Piece::KING, Game::BLACK, black_player), 7, 4)
     end
 
 end

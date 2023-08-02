@@ -8,7 +8,7 @@ class Queen < Piece
         "\u265B"
     end
 
-    protected def available_square?(square)
+    def available_square?(square)
         if !obstruction?(square) && empty_or_capturable?(square)
             return diagonal_movement?(square) || lineal_movement?(square)
         end

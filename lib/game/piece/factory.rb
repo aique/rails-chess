@@ -1,12 +1,5 @@
 class PieceFactory
 
-    PAWN = "pawn"
-    ROOK = "rook"
-    KNIGHT = "knight"
-    BISHOP = "bishop"
-    QUEEN = "queen"
-    KING = "king"
-    
     def build(type, color, units)
         pieces = []
 
@@ -17,20 +10,20 @@ class PieceFactory
         pieces
     end
 
-    def build_piece(type, color)
+    def build_piece(type, color, player = nil)
         case type
-            when PAWN
-                return Pawn.new(color)
-            when ROOK
-                return Rook.new(color)
-            when KNIGHT
-                return Knight.new(color)
-            when BISHOP
-                return Bishop.new(color)
-            when QUEEN
-                return Queen.new(color)
-            when KING
-                return King.new(color)
+            when Piece::PAWN
+                return Pawn.new(color, player)
+            when Piece::ROOK
+                return Rook.new(color, player)
+            when Piece::KNIGHT
+                return Knight.new(color, player)
+            when Piece::BISHOP
+                return Bishop.new(color, player)
+            when Piece::QUEEN
+                return Queen.new(color, player)
+            when Piece::KING
+                return King.new(color, player)
             else
                 raise "Unknown piece type"
         end

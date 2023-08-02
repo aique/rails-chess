@@ -13,7 +13,7 @@ describe Game do
         game = Container["game"]
         factory = Container["piece_factory"]
         
-        bishop = factory.build_piece(PieceFactory::BISHOP, Game::WHITE)
+        bishop = factory.build_piece(Piece::BISHOP, Game::WHITE)
         game.board.set_piece(bishop, 4, 4)
 
         it "that piece can move like a bishop" do
@@ -41,8 +41,8 @@ describe Game do
         game = Container["game"]
         factory = Container["piece_factory"]
         
-        pawn = factory.build_piece(PieceFactory::PAWN, Game::WHITE)
-        bishop = factory.build_piece(PieceFactory::BISHOP, Game::WHITE)
+        pawn = factory.build_piece(Piece::PAWN, Game::WHITE)
+        bishop = factory.build_piece(Piece::BISHOP, Game::WHITE)
         
         game.board.set_piece(pawn, 5, 5)
         game.board.set_piece(bishop, 4, 4)
@@ -57,8 +57,8 @@ describe Game do
         game = Container["game"]
         factory = Container["piece_factory"]
         
-        pawn = factory.build_piece(PieceFactory::PAWN, Game::WHITE)
-        bishop = factory.build_piece(PieceFactory::BISHOP, Game::BLACK)
+        pawn = factory.build_piece(Piece::PAWN, Game::WHITE)
+        bishop = factory.build_piece(Piece::BISHOP, Game::BLACK)
         
         game.board.set_piece(pawn, 5, 5)
         game.board.set_piece(bishop, 4, 4)

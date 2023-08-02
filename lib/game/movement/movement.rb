@@ -6,5 +6,9 @@ class Movement
         @piece = piece
         @square = square
     end
+
+    def valid?(player)
+        @piece.player == player && @piece.available_square?(@square)
+    end
     
 end

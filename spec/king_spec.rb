@@ -13,7 +13,7 @@ describe Game do
         game = Container["game"]
         factory = Container["piece_factory"]
         
-        king = factory.build_piece(PieceFactory::KING, Game::WHITE)
+        king = factory.build_piece(Piece::KING, Game::WHITE)
         game.board.set_piece(king, 4, 4)
 
         it "that piece can move like a king" do
@@ -53,8 +53,8 @@ describe Game do
         game = Container["game"]
         factory = Container["piece_factory"]
         
-        pawn = factory.build_piece(PieceFactory::PAWN, Game::WHITE)
-        king = factory.build_piece(PieceFactory::KING, Game::WHITE)
+        pawn = factory.build_piece(Piece::PAWN, Game::WHITE)
+        king = factory.build_piece(Piece::KING, Game::WHITE)
         
         game.board.set_piece(pawn, 4, 5)
         game.board.set_piece(king, 4, 4)
@@ -68,8 +68,8 @@ describe Game do
         game = Container["game"]
         factory = Container["piece_factory"]
         
-        pawn = factory.build_piece(PieceFactory::PAWN, Game::WHITE)
-        king = factory.build_piece(PieceFactory::KING, Game::BLACK)
+        pawn = factory.build_piece(Piece::PAWN, Game::WHITE)
+        king = factory.build_piece(Piece::KING, Game::BLACK)
         
         game.board.set_piece(pawn, 4, 5)
         game.board.set_piece(king, 4, 4)

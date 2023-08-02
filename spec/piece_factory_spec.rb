@@ -11,7 +11,7 @@ describe PieceFactory do
         factory = Container["piece_factory"]
 
         it "must return four black pawns" do
-            pieces = factory.build(PieceFactory::PAWN, Game::BLACK, 4)
+            pieces = factory.build(Piece::PAWN, Game::BLACK, 4)
 
             expect(pieces.length).to eq(4)
             expect(pieces[0].color).to eq(Game::BLACK)

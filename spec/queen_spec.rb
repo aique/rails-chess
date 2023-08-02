@@ -13,7 +13,7 @@ describe Game do
         game = Container["game"]
         factory = Container["piece_factory"]
         
-        queen = factory.build_piece(PieceFactory::QUEEN, Game::WHITE)
+        queen = factory.build_piece(Piece::QUEEN, Game::WHITE)
         game.board.set_piece(queen, 4, 4)
 
         it "that piece can move like a queen" do
@@ -49,8 +49,8 @@ describe Game do
         game = Container["game"]
         factory = Container["piece_factory"]
         
-        pawn = factory.build_piece(PieceFactory::PAWN, Game::WHITE)
-        queen = factory.build_piece(PieceFactory::QUEEN, Game::WHITE)
+        pawn = factory.build_piece(Piece::PAWN, Game::WHITE)
+        queen = factory.build_piece(Piece::QUEEN, Game::WHITE)
         
         game.board.set_piece(pawn, 4, 5)
         game.board.set_piece(queen, 4, 4)
@@ -65,8 +65,8 @@ describe Game do
         game = Container["game"]
         factory = Container["piece_factory"]
         
-        pawn = factory.build_piece(PieceFactory::PAWN, Game::WHITE)
-        queen = factory.build_piece(PieceFactory::QUEEN, Game::BLACK)
+        pawn = factory.build_piece(Piece::PAWN, Game::WHITE)
+        queen = factory.build_piece(Piece::QUEEN, Game::BLACK)
         
         game.board.set_piece(pawn, 4, 5)
         game.board.set_piece(queen, 4, 4)

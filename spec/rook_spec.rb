@@ -13,7 +13,7 @@ describe Game do
         game = Container["game"]
         factory = Container["piece_factory"]
         
-        rook = factory.build_piece(PieceFactory::ROOK, Game::WHITE)
+        rook = factory.build_piece(Piece::ROOK, Game::WHITE)
         game.board.set_piece(rook, 4, 4)
 
         it "that piece can move like a rook" do
@@ -41,8 +41,8 @@ describe Game do
         game = Container["game"]
         factory = Container["piece_factory"]
         
-        pawn = factory.build_piece(PieceFactory::PAWN, Game::WHITE)
-        rook = factory.build_piece(PieceFactory::ROOK, Game::WHITE)
+        pawn = factory.build_piece(Piece::PAWN, Game::WHITE)
+        rook = factory.build_piece(Piece::ROOK, Game::WHITE)
         
         game.board.set_piece(pawn, 4, 5)
         game.board.set_piece(rook, 4, 4)
@@ -57,8 +57,8 @@ describe Game do
         game = Container["game"]
         factory = Container["piece_factory"]
         
-        pawn = factory.build_piece(PieceFactory::PAWN, Game::WHITE)
-        rook = factory.build_piece(PieceFactory::ROOK, Game::BLACK)
+        pawn = factory.build_piece(Piece::PAWN, Game::WHITE)
+        rook = factory.build_piece(Piece::ROOK, Game::BLACK)
         
         game.board.set_piece(pawn, 4, 5)
         game.board.set_piece(rook, 4, 4)

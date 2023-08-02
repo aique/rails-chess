@@ -1,0 +1,25 @@
+
+[1mFrom:[0m /home/aique/Projects/personal/bebanjo/ruby/chess/lib/game/piece/piece.rb:22 Piece#square=:
+
+    [1;34m21[0m: [32mdef[0m [1;34msquare=[0m(square)
+ => [1;34m22[0m:     [32mif[0m @square.nil?
+    [1;34m23[0m:         @square = square
+    [1;34m24[0m:         @square.piece = [1;36mself[0m
+    [1;34m25[0m:         
+    [1;34m26[0m:         [32mreturn[0m [1;36mself[0m
+    [1;34m27[0m:     [32mend[0m
+    [1;34m28[0m: 
+    [1;34m29[0m:     [32mif[0m available_square?(square)
+    [1;34m30[0m:         @player.append_capture(@square.piece) [32munless[0m @player.nil? || @square.piece.nil?
+    [1;34m31[0m: 
+    [1;34m32[0m:         @first_movement = [1;36mfalse[0m
+    [1;34m33[0m: 
+    [1;34m34[0m:         @square = square
+    [1;34m35[0m:         @square.piece = [1;36mself[0m
+    [1;34m36[0m: 
+    [1;34m37[0m:         [32mreturn[0m [1;36mself[0m
+    [1;34m38[0m:     [32mend[0m
+    [1;34m39[0m: 
+    [1;34m40[0m:     raise [31m[1;31m"[0m[31mInvalid movement[1;31m"[0m[31m[0m
+    [1;34m41[0m: [32mend[0m
+

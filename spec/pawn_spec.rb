@@ -13,7 +13,7 @@ describe Game do
         game = Container["game"]
         factory = Container["piece_factory"]
         
-        pawn = factory.build_piece(PieceFactory::PAWN, Game::WHITE)
+        pawn = factory.build_piece(Piece::PAWN, Game::WHITE)
         game.board.set_piece(pawn, 1, 1)
 
         it "that piece knows its square" do
@@ -33,7 +33,7 @@ describe Game do
         game = Container["game"]
         factory = Container["piece_factory"]
         
-        pawn = factory.build_piece(PieceFactory::PAWN, Game::BLACK)
+        pawn = factory.build_piece(Piece::PAWN, Game::BLACK)
         game.board.set_piece(pawn, 7, 1)
 
         it "that piece can move forward one square" do
@@ -47,7 +47,7 @@ describe Game do
         game = Container["game"]
         factory = Container["piece_factory"]
         
-        pawn = factory.build_piece(PieceFactory::PAWN, Game::WHITE)
+        pawn = factory.build_piece(Piece::PAWN, Game::WHITE)
         game.board.set_piece(pawn, 1, 1)
 
         it "that piece can't move backward" do
@@ -83,7 +83,7 @@ describe Game do
         game = Container["game"]
         factory = Container["piece_factory"]
         
-        pawn = factory.build_piece(PieceFactory::PAWN, Game::BLACK)
+        pawn = factory.build_piece(Piece::PAWN, Game::BLACK)
         game.board.set_piece(pawn, 6, 1)
 
         it "that piece can't move backward" do
@@ -119,7 +119,7 @@ describe Game do
         game = Container["game"]
         factory = Container["piece_factory"]
         
-        pawn = factory.build_piece(PieceFactory::PAWN, Game::WHITE)
+        pawn = factory.build_piece(Piece::PAWN, Game::WHITE)
         game.board.set_piece(pawn, 1, 1)
 
         it "that piece can move two squares forward in its first movement" do
@@ -143,8 +143,8 @@ describe Game do
         game = Container["game"]
         factory = Container["piece_factory"]
         
-        pawn1 = factory.build_piece(PieceFactory::PAWN, Game::WHITE)
-        pawn2 = factory.build_piece(PieceFactory::PAWN, Game::BLACK)
+        pawn1 = factory.build_piece(Piece::PAWN, Game::WHITE)
+        pawn2 = factory.build_piece(Piece::PAWN, Game::BLACK)
         
         game.board.set_piece(pawn1, 1, 1)
         game.board.set_piece(pawn2, 2, 1)
@@ -163,8 +163,8 @@ describe Game do
         game = Container["game"]
         factory = Container["piece_factory"]
         
-        pawn1 = factory.build_piece(PieceFactory::PAWN, Game::WHITE)
-        pawn2 = factory.build_piece(PieceFactory::PAWN, Game::WHITE)
+        pawn1 = factory.build_piece(Piece::PAWN, Game::WHITE)
+        pawn2 = factory.build_piece(Piece::PAWN, Game::WHITE)
         
         game.board.set_piece(pawn1, 1, 1)
         game.board.set_piece(pawn2, 2, 1)
@@ -178,8 +178,8 @@ describe Game do
         game = Container["game"]
         factory = Container["piece_factory"]
         
-        pawn1 = factory.build_piece(PieceFactory::PAWN, Game::WHITE)
-        pawn2 = factory.build_piece(PieceFactory::PAWN, Game::BLACK)
+        pawn1 = factory.build_piece(Piece::PAWN, Game::WHITE)
+        pawn2 = factory.build_piece(Piece::PAWN, Game::BLACK)
         
         game.board.set_piece(pawn1, 1, 1)
         game.board.set_piece(pawn2, 2, 2)

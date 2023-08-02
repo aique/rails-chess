@@ -11,8 +11,8 @@ class Main
     def play
         game = Container["game"]
 
-        game.append_player(Player.new("Player 1", Game::WHITE))
-        game.append_player(Player.new("Player 2", Game::BLACK))
+        game.append_player(Player.new("Player 1", Color.new(Game::WHITE)))
+        game.append_player(Player.new("Player 2", Color.new(Game::BLACK)))
 
         game.start
     end

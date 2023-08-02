@@ -8,7 +8,7 @@ class Knight < Piece
         "\u265E"
     end
 
-    protected def available_square?(square)
+    def available_square?(square)
         if !square.piece.nil? && square.piece.color == @color
             return false
         end

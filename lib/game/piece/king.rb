@@ -8,7 +8,7 @@ class King < Piece
         "\u265A"
     end
 
-    protected def available_square?(square)
+    def available_square?(square)
         if unitary_movement?(square) && empty_or_capturable?(square)
             return diagonal_movement?(square) || lineal_movement?(square)
         end
