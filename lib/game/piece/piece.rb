@@ -9,6 +9,8 @@ class Piece
 
     attr_reader :color, :player
     attr_accessor :square, :board
+
+    protected attr_reader :first_movement
     
     protected def initialize(color, player = nil)
         @color = color
@@ -19,7 +21,7 @@ class Piece
     end
 
     def square=(square)
-        if @square.nil?
+        if !@square
             @square = square
             @square.piece = self
             
@@ -27,7 +29,7 @@ class Piece
         end
 
         if available_square?(square)
-            @player.append_capture(square.piece) unless @player.nil? || square.piece.nil?
+            @player.append_capture(square.piece) if @player && square.piece
 
             @square.piece = nil
             @first_movement = false
@@ -41,16 +43,16 @@ class Piece
         raise "Invalid movement"
     end
 
-    def available_square?(destination)
+    def available_square?
         raise "Method must be overwritten"
     end
 
     protected def capture_available?(square)
-        !square.piece.nil? && square.piece.color != @color
+        square.piece && square.piece.color != @color
     end
 
     protected def empty_or_capturable?(square)
-        square.piece.nil? || (!square.piece.nil? && square.piece.color != @color)
+        !square.piece || (square.piece && square.piece.color != @color)
     end
 
     protected def diagonal_movement?(square)

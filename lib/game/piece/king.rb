@@ -1,7 +1,7 @@
 class King < Piece
 
     def to_s
-        if @color == Game::BLACK
+        if color == Game::BLACK
             return "\u2654"
         end
 
@@ -16,10 +16,10 @@ class King < Piece
         false
     end
 
-    private def unitary_movement?(square)
-        difference = (square.row - @square.row).abs + (square.column - @square.column).abs
+    private def unitary_movement?(destination)
+        difference = (destination.row - square.row).abs + (destination.column - square.column).abs
 
-        if lineal_movement?(square)
+        if lineal_movement?(destination)
             return difference == 1
         end
 

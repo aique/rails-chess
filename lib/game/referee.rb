@@ -7,15 +7,15 @@ class Referee
     end
 
     def set_up_pieces(board, white_player, black_player)
-        for i in 0..Board::HEIGHT - 1 do
-            for j in 0..Board::WIDTH - 1 do
-                board.set_piece(nil, i, j)
+        for row in 0..Board::HEIGHT - 1 do
+            for column in 0..Board::WIDTH - 1 do
+                board.set_piece(nil, row, column)
             end
         end
 
-        for i in 0..Board::WIDTH - 1 do
-            board.set_piece(@factory.build_piece(Piece::PAWN, Game::WHITE, white_player), 1, i)
-            board.set_piece(@factory.build_piece(Piece::PAWN, Game::BLACK, black_player), 6, i)
+        for column in 0..Board::WIDTH - 1 do
+            board.set_piece(@factory.build_piece(Piece::PAWN, Game::WHITE, white_player), 1, column)
+            board.set_piece(@factory.build_piece(Piece::PAWN, Game::BLACK, black_player), 6, column)
         end
 
         board.set_piece(@factory.build_piece(Piece::ROOK, Game::WHITE, white_player), 0, 0)
