@@ -20,7 +20,7 @@ class Pawn < Piece
             advance_square = valid_row(square.row) && valid_column(square.column)
         end
 
-        return capture_square || advance_square
+        capture_square || advance_square
     end
 
     private def valid_row(row)

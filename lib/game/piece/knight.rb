@@ -13,14 +13,14 @@ class Knight < Piece
             return false
         end
 
-        return square.row == @square.row + 2 && square.column == @square.column + 1 ||
-               square.row == @square.row + 1 && square.column == @square.column + 2 ||
-               square.row == @square.row + 2 && square.column == @square.column - 1 ||
-               square.row == @square.row + 1 && square.column == @square.column - 2 ||
-               square.row == @square.row - 2 && square.column == @square.column + 1 ||
-               square.row == @square.row - 1 && square.column == @square.column + 2 ||
-               square.row == @square.row - 2 && square.column == @square.column - 1 ||
-               square.row == @square.row - 1 && square.column == @square.column - 2
+        square.row == @square.row + 2 && square.column == @square.column + 1 ||
+        square.row == @square.row + 1 && square.column == @square.column + 2 ||
+        square.row == @square.row + 2 && square.column == @square.column - 1 ||
+        square.row == @square.row + 1 && square.column == @square.column - 2 ||
+        square.row == @square.row - 2 && square.column == @square.column + 1 ||
+        square.row == @square.row - 1 && square.column == @square.column + 2 ||
+        square.row == @square.row - 2 && square.column == @square.column - 1 ||
+        square.row == @square.row - 1 && square.column == @square.column - 2
     end
 
 end

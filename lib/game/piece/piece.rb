@@ -32,11 +32,11 @@ class Piece
     end
 
     protected def capture_available?(square)
-        return !square.piece.nil? && square.piece.color != @color
+        !square.piece.nil? && square.piece.color != @color
     end
 
     protected def empty_or_capturable?(square)
-        return square.piece.nil? || (!square.piece.nil? && square.piece.color != @color)
+        square.piece.nil? || (!square.piece.nil? && square.piece.color != @color)
     end
 
     protected def available_square?(square)
@@ -69,7 +69,15 @@ class Piece
             end
         end
 
-        return false
+        false
+    end
+
+    protected def diagonal_movement?(square)
+        (square.row - @square.row).abs == (square.column - @square.column).abs
+    end
+
+    protected def lineal_movement?(square)
+        square.row == @square.row || square.column == @square.column
     end
 
 end

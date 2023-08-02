@@ -10,10 +10,10 @@ class Bishop < Piece
 
     def available_square?(square)
         if !obstruction?(square) && empty_or_capturable?(square)
-            return (square.row - @square.row).abs == (square.column - @square.column).abs
+            return diagonal_movement?(square)
         end
 
-        return false
+        false
     end
 
 end
