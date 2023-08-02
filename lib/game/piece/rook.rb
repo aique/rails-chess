@@ -1,7 +1,7 @@
 class Rook < Piece
 
     def to_s
-        if @color == Game::BLACK
+        if color == Game::BLACK
             return "\u2656"
         end
 
@@ -9,7 +9,7 @@ class Rook < Piece
     end
 
     def available_square?(destination)
-        if !@board.obstruction?(@square, destination) && empty_or_capturable?(destination)
+        if !board.obstruction?(square, destination) && empty_or_capturable?(destination)
             return lineal_movement?(destination)
         end
 
